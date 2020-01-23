@@ -12,6 +12,10 @@ namespace alarm
 {
     public partial class AlarmInfo : Form
     {
+        private DateTime time;
+        private bool on;
+        public Alarm alarm;
+        public List<Alarm> AlarmList = new List<Alarm>();
         public AlarmInfo()
         {
             InitializeComponent();
@@ -23,12 +27,39 @@ namespace alarm
         /// <param name="e"></param>
         private void Button2_Click(object sender, EventArgs e)
         {
-            
+            alarm = new Alarm(selectedTime.Value, on);
+
+            //close
         }
 
         private void SelectedTime_ValueChanged(object sender, EventArgs e)
         {
-            
+            alarm = new Alarm(selectedTime.Value, on);
+            AlarmList.Add(alarm);
+            Form1 form = new Form1(AlarmList);
+            //this.Hide();
+        }
+
+        /// <summary>
+        /// RadioButton1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(onButton.Checked == true)
+            {
+                on = true;
+            }
+            else
+            {
+                on = false;
+            }
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
         }
     }
 }

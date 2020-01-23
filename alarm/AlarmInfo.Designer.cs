@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.cancelButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.selectedTime = new System.Windows.Forms.DateTimePicker();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.onButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // button1
+            // cancelButton
             // 
-            this.button1.Location = new System.Drawing.Point(51, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 33);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Cancel";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cancelButton.Location = new System.Drawing.Point(51, 85);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(82, 33);
+            this.cancelButton.TabIndex = 0;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // button2
             // 
@@ -62,26 +63,27 @@
             this.selectedTime.TabIndex = 2;
             this.selectedTime.ValueChanged += new System.EventHandler(this.SelectedTime_ValueChanged);
             // 
-            // radioButton1
+            // onButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(258, 33);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(39, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "On";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.onButton.AutoSize = true;
+            this.onButton.Location = new System.Drawing.Point(258, 33);
+            this.onButton.Name = "onButton";
+            this.onButton.Size = new System.Drawing.Size(39, 17);
+            this.onButton.TabIndex = 3;
+            this.onButton.TabStop = true;
+            this.onButton.Text = "On";
+            this.onButton.UseVisualStyleBackColor = true;
+            this.onButton.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // AlarmInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 141);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.onButton);
             this.Controls.Add(this.selectedTime);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.cancelButton);
             this.Name = "AlarmInfo";
             this.Text = "AlarmInfo";
             this.ResumeLayout(false);
@@ -91,9 +93,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker selectedTime;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton onButton;
     }
 }

@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.alarmsList = new System.Windows.Forms.ListBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -55,14 +55,15 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // listBox1
+            // alarmsList
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(54, 58);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(157, 160);
-            this.listBox1.TabIndex = 2;
+            this.alarmsList.FormattingEnabled = true;
+            this.alarmsList.Location = new System.Drawing.Point(54, 58);
+            this.alarmsList.Name = "alarmsList";
+            this.alarmsList.ScrollAlwaysVisible = true;
+            this.alarmsList.Size = new System.Drawing.Size(157, 160);
+            this.alarmsList.TabIndex = 2;
+            this.alarmsList.SelectedIndexChanged += new System.EventHandler(this.AlarmsList_SelectedIndexChanged);
             // 
             // button3
             // 
@@ -91,7 +92,7 @@
             this.ClientSize = new System.Drawing.Size(289, 336);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.alarmsList);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -104,7 +105,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox alarmsList;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }

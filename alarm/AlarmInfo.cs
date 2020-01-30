@@ -36,7 +36,6 @@ namespace alarm
         {
             alarm = new Alarm(selectedTime.Value, on);
             AlarmList.Add(alarm);
-            Form1 form = new Form1(AlarmList);
             //this.Hide();
         }
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace alarm
 {
@@ -25,10 +26,21 @@ namespace alarm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button2_Click(object sender, EventArgs e)
+        private void SetButton(object sender, EventArgs e)
         {
-            alarm = new Alarm(selectedTime.Value, on);
-
+            // [1] , [2] , [3] , [4]
+            String time = selectedTime.ToString();
+            String status;
+            if (on)
+            {
+                status = "ON";
+            }
+            else
+            {
+                status = "OFF";
+            }
+            Form1 form = new Form1(time + status);
+            form.Show();
             //close
         }
 
@@ -36,7 +48,7 @@ namespace alarm
         {
             alarm = new Alarm(selectedTime.Value, on);
             AlarmList.Add(alarm);
-            //this.Hide();
+            //this.Close();
         }
 
         /// <summary>
@@ -44,7 +56,7 @@ namespace alarm
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        private void OnChecked(object sender, EventArgs e)
         {
             if(onButton.Checked == true)
             {
@@ -58,7 +70,7 @@ namespace alarm
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
         }
     }
 }

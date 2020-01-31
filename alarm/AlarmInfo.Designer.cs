@@ -52,7 +52,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Set";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button2.Click += new System.EventHandler(this.SetButton);
             // 
             // selectedTime
             // 
@@ -73,7 +73,7 @@
             this.onButton.TabStop = true;
             this.onButton.Text = "On";
             this.onButton.UseVisualStyleBackColor = true;
-            this.onButton.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            this.onButton.CheckedChanged += new System.EventHandler(this.OnChecked);
             // 
             // AlarmInfo
             // 

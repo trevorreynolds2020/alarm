@@ -22,6 +22,15 @@ namespace alarm
             InitializeComponent();
         }
         /// <summary>
+        /// Editing alarms
+        /// </summary>
+        /// <param name="alarm"></param>
+        public AlarmInfo(string alarm)
+        {
+            InitializeComponent();
+            selectedTime.Value = DateTime.Now; //value of string
+        }
+        /// <summary>
         /// Set Button
         /// </summary>
         /// <param name="sender"></param>
@@ -30,6 +39,7 @@ namespace alarm
         {
             // [1] , [2] , [3] , [4]
             String time = selectedTime.ToString();
+            String[] parts = time.Split(':', ',', '/');
             String status;
             if (on)
             {
@@ -39,15 +49,15 @@ namespace alarm
             {
                 status = "OFF";
             }
-            Form1 form = new Form1(time + status);
-            form.Show();
-            //close
+            String officialTime =  parts[4].Split(' ')[1] +":"+parts[5] + ":" + parts[6] +" "+ status;
+            Form1 form = new Form1(officialTime);
+            this.Close();
         }
 
         private void SelectedTime_ValueChanged(object sender, EventArgs e)
         {
-            alarm = new Alarm(selectedTime.Value, on);
-            AlarmList.Add(alarm);
+            //alarm = new Alarm(selectedTime.Value, on);
+            //AlarmList.Add(alarm);
             //this.Close();
         }
 

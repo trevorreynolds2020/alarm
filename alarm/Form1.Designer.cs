@@ -44,6 +44,7 @@
             this.uxEdit.TabIndex = 0;
             this.uxEdit.Text = "Edit";
             this.uxEdit.UseVisualStyleBackColor = true;
+            this.uxEdit.Click += new System.EventHandler(this.UxEdit_Click);
             // 
             // button2
             // 

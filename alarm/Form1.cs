@@ -24,9 +24,8 @@ namespace alarm
         public Form1(string alarm)
         {
             InitializeComponent();
-            alarmsList.DataSource = Alarms;
-            Alarms.AllowNew = true;
-            WriteAlarmFile(alarm,"C:/Users/tjr2020/Source/Repos/alarm/alarm/alarm.txt");
+            WriteAlarmFile(alarm, "C:/Users/tjr2020/Source/Repos/alarm/alarm/alarm.txt");
+            ReadAlarmFile("C:/Users/tjr2020/Source/Repos/alarm/alarm/alarm.txt");
         }
 
         private void AddButton(object sender, EventArgs e)
@@ -60,13 +59,31 @@ namespace alarm
         /// <param name="path"></param>
         private void WriteAlarmFile(string newAlarm, string path)
         {
+            // copy the alarms over from the file
+            List<string> replicaAlarm = new List<string>();
+            StreamReader sr = new StreamReader(path);
+            while (!sr.EndOfStream)
+            {
+                String line = sr.ReadLine();
+                replicaAlarm.Add(line);
+            }
+            sr.Close();
+
+            // rewrite the alarms with the new alarm
             StreamWriter sw = new StreamWriter(path);
             sw.Flush();
-            foreach(string a in Alarms)
+            foreach (string a in replicaAlarm)
             {
-                sw.WriteLine(a);
+               sw.WriteLine(a);
             }
             sw.WriteLine(newAlarm);
+            sw.Close();
+        }
+
+        private void UxEdit_Click(object sender, EventArgs e)
+        {
+            AlarmInfo alarmEditor = new AlarmInfo();
+            alarmEditor.ShowDialog();
         }
     }
 }
